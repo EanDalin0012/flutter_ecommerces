@@ -7,6 +7,7 @@ import 'package:ecommerces/shares/models/navigation_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           appBar: _appBar(),
           body: _widgetOptions.elementAt(_selectedIndex),
           backgroundColor: Colors.white,
-          bottomNavigationBar: _bottomNavigationBar(),
+          bottomNavigationBar: _bottomNavigationBar1(),
       ),
     );
   }
@@ -152,6 +153,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+
+
   Widget _widgetBuildItem(NavigationItem navigationItem, bool isSelected) {
     return AnimatedContainer(
       duration: Duration(milliseconds: 270),
@@ -180,6 +183,42 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  BottomNavigationBar _bottomNavigationBar1() {
+  return BottomNavigationBar(
+    currentIndex: _selectedIndex,
+    type: BottomNavigationBarType.fixed,
+    items: [
+      BottomNavigationBarItem(
+        icon: Icon(Feather.home),
+        title: Text(""),
+        activeIcon: Icon(Feather.home, color: Color(0xffFD6592))
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(FontAwesomeIcons.folderOpen),
+        title: Text(""),
+        activeIcon: Icon(FontAwesomeIcons.folderOpen, color: Color(0xffFD6592))
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.favorite_border),
+        title: Text(""),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.person_outline),
+        title: Text(""),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.settings),
+        title: Text(""),
+      ),
+    ],
+    onTap: (index){
+      setState(() {
+        _selectedIndex = index;
+      });
+
+    },
+  );
+  }
 }
 
 
