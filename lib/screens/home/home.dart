@@ -3,6 +3,7 @@ import 'package:ecommerces/screens/home/home_container.dart';
 import 'package:ecommerces/screens/menu/menu.dart';
 import 'package:ecommerces/screens/notification/notification.dart';
 import 'package:ecommerces/screens/sign_in/sign_in.dart';
+import 'package:ecommerces/shares/models/navigation_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -27,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<NavigationItem> _listNavigationItem = [
     NavigationItem(Icon(Feather.home),Text('Home'), Colors.deepPurpleAccent),
-    NavigationItem(Icon(Icons.favorite_border),Text('Favorite'), Colors.pinkAccent),
-    NavigationItem(Icon(Icons.search),Text('Search'),Colors.amberAccent),
-    NavigationItem(Icon(Icons.person_outline),Text('Profile'),Colors.cyanAccent)
+    NavigationItem(Icon(Feather.message_circle),Text('Favorite'), Colors.pinkAccent),
+    NavigationItem(Icon(Feather.shopping_cart),Text('Carts'),Colors.amberAccent),
+    NavigationItem(Icon(Feather.user),Text('Profile'),Colors.deepPurpleAccent)
   ];
 
   @override
@@ -54,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       centerTitle: true,
       backgroundColor: Colors.purple[900],
       elevation: 0,
-      leading: new Container(),
+      leading: Container(),
       actions: <Widget>[
         Stack(
           children: <Widget>[
@@ -88,7 +89,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               margin: EdgeInsets.only(
                   top: 7,
-                  left: 20
+                  left: 20,
+                  right: 5
               ),
               child: Text('2', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800)),
             ),
@@ -109,9 +111,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 left: 5
             ),
             margin: EdgeInsets.only(
-                right: 5
+                right: 10
             ),
-            child: Icon(Icons.logout),
+            child: Icon(Icons.sort_rounded),
           ),
         ),
       ],
@@ -180,9 +182,4 @@ class _HomeScreenState extends State<HomeScreen> {
 
 }
 
-class NavigationItem {
-  final Icon icon;
-  final Text title;
-  Color color;
-  NavigationItem(this.icon, this.title,this.color);
-}
+
