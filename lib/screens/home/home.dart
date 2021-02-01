@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String _titleBar = 'Home';
   int _selectedIndex = 0;
+  var newNotification = 2;
   var bottomNavigationBarActiveColor = Color(0xffFD6592);
   List<Widget> _widgetOptions = <Widget>[
     HomeContainerScreen('Home'),
@@ -42,10 +43,71 @@ class _HomeScreenState extends State<HomeScreen> {
         print('data');
       },
       child: Scaffold(
+          // appBar: _appBar(),
           body: _widgetOptions.elementAt(_selectedIndex),
           backgroundColor: Colors.white,
           bottomNavigationBar: _bottomNavigationBar1(),
       ),
+    );
+  }
+
+  AppBar _appBar(){
+    return AppBar(
+      title: Text('Home', style: TextStyle(color: Colors.white),),
+      centerTitle: true,
+      backgroundColor: Colors.purple[900],
+      elevation: 0,
+      leading: Container(),
+      actions: <Widget>[
+        InkWell(
+          onTap: () {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => SignInScreen()),
+            // );
+          },
+          child: Container(
+            height: 40,
+            width: 50,
+            child: Icon(Icons.shopping_cart,color: Colors.white),
+          ),
+        ),
+        Stack(
+          children: <Widget>[
+            InkWell(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => NotificationScreen()),
+                // );
+              },
+              child: Container(
+                height: 80,
+                width: 40,
+                child: Icon(Icons.notifications, color: Colors.white,),
+              ),
+            ),
+            newNotification != 0 ? _notificationsVal(newNotification): Container()
+
+          ],
+        ),
+        Container(
+          width: 10,
+        )
+      ],
+    );
+  }
+
+  Container _notificationsVal(int val) {
+    return Container(
+      width: 20,
+      height: 20,
+      margin: EdgeInsets.only(left: 20,top: 3),
+      decoration: BoxDecoration(
+        color: Colors.black45,
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Center(child: Text(val.toString(), style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500))),
     );
   }
 

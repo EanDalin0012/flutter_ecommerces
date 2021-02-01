@@ -12,13 +12,12 @@ class HomeContainerScreen extends StatefulWidget {
 class _HomeContainerState extends State<HomeContainerScreen> {
 
   var colorTabsText = Colors.black54;
-  static final String path = "lib/src/pages/blog/bhome1.dart";
   final Color primaryColor = Color(0xffFD6592);
   final Color bgColor = Color(0xffF9E0E3);
   final Color secondaryColor = Color(0xff324558);
 
   var newNotification = 2;
-
+  var newCart = 0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -73,25 +72,10 @@ class _HomeContainerState extends State<HomeContainerScreen> {
 
   AppBar _appBar(){
     return AppBar(
-      title: Text(widget.title, style: TextStyle(color: Colors.white),),
       centerTitle: true,
-      backgroundColor: Colors.purple[900],
-      elevation: 0,
-      leading: Container(),
+      title: Text('Home'),
+      leading: Icon(Icons.category),
       actions: <Widget>[
-        InkWell(
-          onTap: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => SignInScreen()),
-            // );
-          },
-          child: Container(
-            height: 40,
-            width: 50,
-            child: Icon(Icons.shopping_cart,color: Colors.white),
-          ),
-        ),
         Stack(
           children: <Widget>[
             InkWell(
@@ -104,7 +88,30 @@ class _HomeContainerState extends State<HomeContainerScreen> {
               child: Container(
                 height: 80,
                 width: 40,
-                child: Icon(Icons.notifications, color: Colors.white,),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(50))
+                ),
+                child: Icon(Icons.shopping_cart, color: Color(0xff324558),),
+              ),
+            ),
+            newCart != 0 ? _notificationsVal(newCart): Container()
+
+          ],
+        ),
+
+        Stack(
+          children: <Widget>[
+            InkWell(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => NotificationScreen()),
+                // );
+              },
+              child: Container(
+                height: 80,
+                width: 40,
+                child: Icon(Icons.notifications, color: Color(0xff324558),),
               ),
             ),
             newNotification != 0 ? _notificationsVal(newNotification): Container()
@@ -115,6 +122,7 @@ class _HomeContainerState extends State<HomeContainerScreen> {
           width: 10,
         )
       ],
+      bottom: _tabBar(),
     );
   }
 
@@ -134,10 +142,10 @@ class _HomeContainerState extends State<HomeContainerScreen> {
 
   TabBar _tabBar() {
     return TabBar(
-      isScrollable: true,
-      labelColor: primaryColor,
-      indicatorColor: primaryColor,
-      unselectedLabelColor: secondaryColor,
+        isScrollable: true,
+        labelColor: primaryColor,
+        indicatorColor: primaryColor,
+        unselectedLabelColor: secondaryColor,
         tabs: <Widget>[
           Padding(
             padding: const EdgeInsets.all(8.0),
