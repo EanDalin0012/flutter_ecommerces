@@ -17,9 +17,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String _titleBar = 'Home';
   int _selectedIndex = 0;
-
+  var bottomNavigationBarActiveColor = Color(0xffFD6592);
   List<Widget> _widgetOptions = <Widget>[
-    HomeContainerScreen(),
+    HomeContainerScreen('Home'),
     CartScreen(),
     MenuScreen(),
     MenuScreen(),
@@ -42,82 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
         print('data');
       },
       child: Scaffold(
-          appBar: _appBar(),
           body: _widgetOptions.elementAt(_selectedIndex),
           backgroundColor: Colors.white,
           bottomNavigationBar: _bottomNavigationBar1(),
       ),
-    );
-  }
-
-  AppBar _appBar(){
-    return AppBar(
-      title: Text(_titleBar),
-      centerTitle: true,
-      backgroundColor: Colors.purple[900],
-      elevation: 0,
-      leading: Container(),
-      actions: <Widget>[
-        Stack(
-          children: <Widget>[
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotificationScreen()),
-                );
-              },
-              child: Container(
-                height: 80,
-                padding: EdgeInsets.only(
-                    top: 5,
-                    right: 10,
-                    left: 10
-                ),
-                child: Icon(Icons.notifications),
-              ),
-            ),
-            Container(
-              width: 20,
-              height: 20,
-              decoration: BoxDecoration(
-                color: Colors.purple.withOpacity(0.5),
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-              ),
-              padding: EdgeInsets.only(
-                  left: 6,
-                  top: 1
-              ),
-              margin: EdgeInsets.only(
-                  top: 7,
-                  left: 20,
-                  right: 5
-              ),
-              child: Text('2', style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w800)),
-            ),
-          ],
-        ),
-        InkWell(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SignInScreen()),
-            );
-          },
-          child: Container(
-            height: 40,
-            padding: EdgeInsets.only(
-                top: 7,
-                right: 5,
-                left: 5
-            ),
-            margin: EdgeInsets.only(
-                right: 10
-            ),
-            child: Icon(Icons.sort_rounded),
-          ),
-        ),
-      ],
     );
   }
 
@@ -191,31 +119,28 @@ class _HomeScreenState extends State<HomeScreen> {
       BottomNavigationBarItem(
         icon: Icon(Feather.home),
         title: Text(""),
-        activeIcon: Icon(Feather.home, color: Color(0xffFD6592))
+        activeIcon: Icon(Feather.home, color: bottomNavigationBarActiveColor)
       ),
       BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.folderOpen),
         title: Text(""),
-        activeIcon: Icon(FontAwesomeIcons.folderOpen, color: Color(0xffFD6592))
+        activeIcon: Icon(FontAwesomeIcons.folderOpen, color: bottomNavigationBarActiveColor)
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.favorite_border),
+        icon: Icon(Feather.shopping_cart),
         title: Text(""),
+        activeIcon: Icon(Feather.shopping_cart, color: bottomNavigationBarActiveColor)
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.person_outline),
+        icon: Icon(Icons.sort_rounded),
         title: Text(""),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.settings),
-        title: Text(""),
+        activeIcon: Icon(Icons.sort_rounded, color: bottomNavigationBarActiveColor)
       ),
     ],
     onTap: (index){
       setState(() {
         _selectedIndex = index;
       });
-
     },
   );
   }

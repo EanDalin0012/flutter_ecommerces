@@ -2,59 +2,22 @@ import 'package:ecommerces/screens/products/product.dart';
 import 'package:flutter/material.dart';
 
 class HomeContainerScreen extends StatefulWidget {
+  final String title;
+  HomeContainerScreen(this.title);
+
   @override
   _HomeContainerState createState() => _HomeContainerState();
 }
 
 class _HomeContainerState extends State<HomeContainerScreen> {
-  var colorTabsText = Colors.black54;
-  final List<Map> articles = [
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "Does Dry is January Actually Improve Your Health?",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "You do hire a designer to make something. You hire them.",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "Does Dry is January Actually Improve Your Health?",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "You do hire a designer to make something. You hire them.",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-  ];
 
+  var colorTabsText = Colors.black54;
   static final String path = "lib/src/pages/blog/bhome1.dart";
   final Color primaryColor = Color(0xffFD6592);
   final Color bgColor = Color(0xffF9E0E3);
   final Color secondaryColor = Color(0xff324558);
+
+  var newNotification = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -108,18 +71,64 @@ class _HomeContainerState extends State<HomeContainerScreen> {
     );
   }
 
-  AppBar _appBar() {
+  AppBar _appBar(){
     return AppBar(
+      title: Text(widget.title, style: TextStyle(color: Colors.white),),
       centerTitle: true,
-      title: Text('Categories'),
-      leading: Icon(Icons.category),
+      backgroundColor: Colors.purple[900],
+      elevation: 0,
+      leading: Container(),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.search),
-          onPressed: () {},
+        InkWell(
+          onTap: () {
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(builder: (context) => SignInScreen()),
+            // );
+          },
+          child: Container(
+            height: 40,
+            width: 50,
+            child: Icon(Icons.shopping_cart,color: Colors.white),
+          ),
+        ),
+        Stack(
+          children: <Widget>[
+            InkWell(
+              onTap: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => NotificationScreen()),
+                // );
+              },
+              child: Container(
+                height: 80,
+                width: 40,
+                child: Icon(Icons.notifications, color: Colors.white,),
+              ),
+            ),
+            newNotification != 0 ? _notificationsVal(newNotification): Container()
+
+          ],
+        ),
+        Container(
+          width: 10,
         )
       ],
-      bottom: _tabBar(),
+    );
+  }
+
+
+  Container _notificationsVal(int val) {
+    return Container(
+      width: 20,
+      height: 20,
+      margin: EdgeInsets.only(left: 20,top: 3),
+      decoration: BoxDecoration(
+        color: Colors.black45,
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      child: Center(child: Text(val.toString(), style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500))),
     );
   }
 
