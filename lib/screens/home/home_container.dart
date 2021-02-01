@@ -12,12 +12,13 @@ class HomeContainerScreen extends StatefulWidget {
 class _HomeContainerState extends State<HomeContainerScreen> {
 
   var colorTabsText = Colors.black54;
+  static final String path = "lib/src/pages/blog/bhome1.dart";
   final Color primaryColor = Color(0xffFD6592);
   final Color bgColor = Color(0xffF9E0E3);
   final Color secondaryColor = Color(0xff324558);
 
   var newNotification = 2;
-  var newCart = 0;
+  var newCart = 2;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -89,7 +90,7 @@ class _HomeContainerState extends State<HomeContainerScreen> {
                 height: 80,
                 width: 40,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(50))
+
                 ),
                 child: Icon(Icons.shopping_cart, color: Color(0xff324558),),
               ),
@@ -133,7 +134,7 @@ class _HomeContainerState extends State<HomeContainerScreen> {
       height: 20,
       margin: EdgeInsets.only(left: 20,top: 3),
       decoration: BoxDecoration(
-        color: Colors.black45,
+        color: Color(0xff324558).withOpacity(0.5),
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: Center(child: Text(val.toString(), style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500))),
