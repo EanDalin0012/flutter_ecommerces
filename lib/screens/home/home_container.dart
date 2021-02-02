@@ -18,7 +18,7 @@ class _HomeContainerState extends State<HomeContainerScreen> {
   final Color secondaryColor = Color(0xff324558);
 
   var newNotification = 2;
-  var newCart = 2;
+  var newCart = 0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(

@@ -1,8 +1,6 @@
 import 'package:ecommerces/screens/cart/cart.dart';
 import 'package:ecommerces/screens/home/home_container.dart';
 import 'package:ecommerces/screens/menu/menu.dart';
-import 'package:ecommerces/screens/notification/notification.dart';
-import 'package:ecommerces/screens/sign_in/sign_in.dart';
 import 'package:ecommerces/shares/models/navigation_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

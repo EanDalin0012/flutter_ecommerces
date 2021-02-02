@@ -1,4 +1,5 @@
 class ProductDetails {
+
   final String productName;
 
   ProductDetails(this.productName);
