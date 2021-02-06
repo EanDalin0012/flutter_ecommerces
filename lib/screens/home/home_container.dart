@@ -1,4 +1,6 @@
 import 'package:ecommerces/screens/products/product.dart';
+import 'package:ecommerces/shares/models/product.dart';
+import 'package:ecommerces/static_data/product_detail_list_items.dart';
 import 'package:flutter/material.dart';
 
 class HomeContainerScreen extends StatefulWidget {
@@ -16,6 +18,9 @@ class _HomeContainerState extends State<HomeContainerScreen> {
   final Color primaryColor = Color(0xffFD6592);
   final Color bgColor = Color(0xffF9E0E3);
   final Color secondaryColor = Color(0xff324558);
+
+  var productDetailsItems = prodouct_detail_items;
+  List<Product> products;
 
   var newNotification = 2;
   var newCart = 0;
@@ -50,23 +55,7 @@ class _HomeContainerState extends State<HomeContainerScreen> {
       backgroundColor: Theme.of(context).buttonColor,
       appBar: _appBar(),
       body: TabBarView(
-          children: <Widget>[
-            Container(
-              child: ProductScreen(),
-            ),
-            Container(
-              child: Text("Tab 2"),
-            ),
-            Container(
-              child: Text("Tab 3"),
-            ),
-            Container(
-              child: Text("Tab 4"),
-            ),
-            Container(
-              child: Text("Tab 5"),
-            ),
-          ]
+          children: List<Widget>.generate(productDetailsItems.length, (index) => ProductScreen(productDetailsItems[index].products))
       )
     );
   }
@@ -141,6 +130,26 @@ class _HomeContainerState extends State<HomeContainerScreen> {
     );
   }
 
+  TabBar _tabBar1() {
+    return TabBar(
+        isScrollable: true,
+        labelColor: primaryColor,
+        indicatorColor: primaryColor,
+        unselectedLabelColor: secondaryColor,
+      tabs: <Widget>[
+        tabContainer()
+      ]
+    );
+  }
+
+  tabContainer() {
+    productDetailsItems.forEach((element) {
+      return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text("For You"),
+      );
+    });
+  }
   TabBar _tabBar() {
     return TabBar(
         isScrollable: true,
@@ -169,6 +178,17 @@ class _HomeContainerState extends State<HomeContainerScreen> {
             child: Text("Entertainment"),
           ),
         ],
+    );
+  }
+
+  Widget _listBuilder () {
+    return ListView.builder(
+      itemCount: productDetailsItems.length,
+        itemBuilder: (context, index) {
+          return Container(
+            child: Text('index $index'),
+          );
+        }
     );
   }
 }

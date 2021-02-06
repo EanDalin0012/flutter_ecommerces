@@ -8,9 +8,9 @@ List<ProductDetailItems> prodouct_detail_items = [
       'T-Short',
       [
         Product(1,'Girl Print Crop T-shirt at SHEIN, Category: T-Shirts', 20, 'https://i.pinimg.com/564x/63/f0/27/63f027e738501bb9978c3cbf3e634be4.jpg', 'remark', '1'),
-        Product(2,'ADIDAS CATEGORY ATH M T-SHIRT BLACK', 20, 'https://hip-hop-shop.supremestyle.eu/sub/hip-hop-shop.supremestyle.eu/shop/product/resized/adidas-category-ath-m-t-shirt-black-53063.thumb_600x600.jpg?t=1517486090', 'remark', '1'),
+        Product(2,'ADIDAS CATEGORY ATH M T-SHIRT BLACK', 20, 'https://hip-hop-shop.supremestyle.eu/sub/hip-hop-shop.supremestyle.eu/shop/product/resized/adidas-category-ath-m-t-shirt-black-53063.thumb_600x600.jpg', 'remark', '1'),
         Product(3,'FREE T-SHIRT MOCKUP', 20, 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/a4ef8863145083.5aa7815b81dd2.jpg', 'remark', '1'),
-        Product(4,'T-Shirts - GD01 Gildan Fully Fitted Mens Tee Shirt', 20, 'https://lh3.googleusercontent.com/proxy/_urqjnXCSZa7q_jybAzcoQ434xPygqUpe3Rw1NU4O04FNJSNoHvvPmGC31xow4LFlHFkNP3UrVFNSHLqUzsg0kROilaBjZ9h21YhjXdNah_QyRlXuxWtOdb6-kIXG56-s5BfRcGsB-fmLHIU-3DXFpfVnMXhRrWXuNyfqSI1bbKfcgDBOqjG', 'remark', '1'),
+        Product(4,'T-Shirts - GD01 Gildan Fully Fitted Mens Tee Shirt', 20, 'https://www.bestworkwear.co.uk/media/catalog/product/cache/2/image/9df78eab33525d08d6e5fb8d27136e95/g/d/gd01_blk_front.jpg', 'remark', '1'),
         Product(5,'ShirtScope I Love Category Theory T Shirt I Heart Category Theory Tee', 20, 'https://images-na.ssl-images-amazon.com/images/I/51r1iAfChTL._AC_UX569_.jpg', 'remark', '1'),
         Product(6,'U Oversized Crew Neck Short-Sleeve T-Shirt', 20, 'https://image.uniqlo.com/UQ/ST3/WesternCommon/imagesgoods/422995/item/goods_53_422995.jpg', 'remark', '1'),
         Product(7,'Navy Blue & Red Striped Polo Collar T-shirt', 20, 'https://cdn.shopify.com/s/files/1/0310/3765/3128/products/w19urcmp07-navy-1.jpg?v=1583123601', 'remark', '1'),
@@ -22,8 +22,8 @@ List<ProductDetailItems> prodouct_detail_items = [
   ProductDetailItems(
     'Baby Toys',
     [
-      Product(1,'Round Shape Silicone Push Pop Bubble Fidget Sensory Toy', 20, 's.alicdn.com/@sc01/kf/Heec0b54593e8442d92f6ceb5e98d9cec0.jpg_300x300.jpg', 'remark', '1'),
-      Product(2,'ADIDAS CATEGORY ATH M T-SHIRT BLACK', 20, '', 'remark', '0'),
+      Product(1,'Round Shape Silicone Push Pop Bubble Fidget Sensory Toy', 20, 'https://s.alicdn.com/@sc01/kf/Heec0b54593e8442d92f6ceb5e98d9cec0.jpg_300x300.jpg', 'remark', '1'),
+      Product(2,'ADIDAS CATEGORY ATH M T-SHIRT BLACK', 20, 'https://s.alicdn.com/@sc01/kf/Heec0b54593e8442d92f6ceb5e98d9cec0.jpg_300x300.jpg', 'remark', '0'),
       Product(3,'Food Grade Silicone Animal Shaped Baby Chewing Toys Baby Silicone Teether', 1.45, 'https://s.alicdn.com/@sc01/kf/H65e965742f434666b3667a73096349a9H.jpg_300x300.jpg', 'remark', ''),
       Product(4,'2020 European Patent Food Grade Spider Silicone Baby Teether ', 3.00, 'https://s.alicdn.com/@sc01/kf/HLB1p2B7RpYqK1RjSZLeq6zXppXau.jpg_300x300.jpg', 'remark', 't'),
       Product(5,'Kids Mats Pattern Design Customized Foam Playmats Non-toxic Indoor Play Mat', 15, 'https://s.alicdn.com/@sc01/kf/HTB1YJ3gXNrvK1RjSszeq6yObFXai.jpg_300x300.jpg', 'remark', 't'),
@@ -65,7 +65,7 @@ List<ProductDetailItems> prodouct_detail_items = [
       'LED Lighting',
       [
         Product(1,'200mm wireless solar portable traffic light', 20, 'https://s.alicdn.com/@sc01/kf/HTB12DNIKrSYBuNjSspfq6AZCpXa3.jpg_300x300.jpg', 'remark', 't'),
-        Product(2,'Wholesale 3.7V 2300mAh Solar Traffic', 20, '', '', 't'),
+        Product(2,'Wholesale 3.7V 2300mAh Solar Traffic', 20, 'https://s.alicdn.com/@sc01/kf/HTB12DNIKrSYBuNjSspfq6AZCpXa3.jpg_300x300.jpg', '', 't'),
         Product(3,'Rechargeable Road Safety Reflective Red Triangle Car Warning Light ', 1.45, 'https://s.alicdn.com/@sc01/kf/Haa69bcd2da704135876a6e17c06e3aafn.jpg_300x300.jpg', 'remark', 't'),
         Product(4,'flash warning traffic cone light', 3.00, 'https://s.alicdn.com/@sc01/kf/HTB1Y5fRe81D3KVjSZFyq6zuFpXa9.jpg_300x300.jpg', 'remark', 't'),
         Product(5,'FAA L810 Led Tower Chimney Building Aircraft Obstruction Solar Aviation Warning light ', 15, 'https://s.alicdn.com/@sc01/kf/HTB1n1GKaPzuK1RjSsppq6xz0XXay.jpg_300x300.jpg', 'remark', 't'),

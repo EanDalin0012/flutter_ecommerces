@@ -1,53 +1,14 @@
+import 'package:ecommerces/shares/models/product.dart';
 import 'package:flutter/material.dart';
 
 class ProductScreen extends StatefulWidget {
+  final List<Product> products;
+  ProductScreen(this.products);
   @override
   _ProductsState createState() => _ProductsState();
 }
 
 class _ProductsState extends State<ProductScreen> {
-  final List<Map> articles = [
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "Does Dry is January Actually Improve Your Health?",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "You do hire a designer to make something. You hire them.",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "Does Dry is January Actually Improve Your Health?",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "You do hire a designer to make something. You hire them.",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-    {
-      "title": "How to Seem Like You Always Have Your Shot Together",
-      "author": "Jonhy Vino",
-      "time": "4 min read",
-    },
-  ];
 
   static final String path = "lib/src/pages/blog/bhome1.dart";
   final Color primaryColor = Color(0xffFD6592);
@@ -57,11 +18,9 @@ class _ProductsState extends State<ProductScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return ListView.separated(
       padding: const EdgeInsets.all(16.0),
-      itemCount: articles.length,
+      itemCount: widget.products.length,
       itemBuilder: (context, index) {
         return _buildArticleItem(index);
       },
@@ -71,7 +30,8 @@ class _ProductsState extends State<ProductScreen> {
   }
 
   Widget _buildArticleItem(int index) {
-    Map article = articles[index];
+    Product product = widget.products[index];
+
     return Container(
       color: Colors.white,
         child: Stack(
@@ -89,10 +49,9 @@ class _ProductsState extends State<ProductScreen> {
                     children: <Widget>[
                       Container(
                         height: 100,
-                        color: Colors.blue,
                         width: 80.0,
                         child: Image(
-                          image: NetworkImage(sample),
+                          image: NetworkImage(product.ur),
                         )
                       ),
                       const SizedBox(width: 20.0),
@@ -100,7 +59,7 @@ class _ProductsState extends State<ProductScreen> {
                         child: Column(
                             children: <Widget>[
                               Text(
-                                article["title"],
+                                product.name,
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
                                   color: secondaryColor,
@@ -111,17 +70,17 @@ class _ProductsState extends State<ProductScreen> {
                               Text.rich(
                                   TextSpan(
                                       children: [
-                                        WidgetSpan(
-                                          child: CircleAvatar(
-                                            radius: 15.0,
-                                            backgroundColor: primaryColor,
-                                          ),
-                                        ),
+                                        // WidgetSpan(
+                                        //   child: CircleAvatar(
+                                        //     radius: 15.0,
+                                        //     backgroundColor: primaryColor,
+                                        //   ),
+                                        // ),
                                         WidgetSpan(
                                           child: const SizedBox(width: 5.0),
                                         ),
                                         TextSpan(
-                                            text: article["author"],
+                                            text: product.price.toString(),
                                             style: TextStyle(fontSize: 16.0)),
                                         WidgetSpan(
                                           child: const SizedBox(width: 20.0),
@@ -130,7 +89,7 @@ class _ProductsState extends State<ProductScreen> {
                                           child: const SizedBox(width: 5.0),
                                         ),
                                         TextSpan(
-                                          text: article["time"],
+                                          text: product.remark,
                                         ),
                                       ]
                                   )
