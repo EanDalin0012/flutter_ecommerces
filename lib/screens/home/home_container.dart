@@ -52,7 +52,7 @@ class _HomeContainerState extends State<HomeContainerScreen> {
 
   Scaffold _themeChild() {
     return Scaffold(
-      backgroundColor: Theme.of(context).buttonColor,
+      backgroundColor: Colors.white,
       appBar: _appBar(),
       body: TabBarView(
           children: List<Widget>.generate(productDetailsItems.length, (index) => ProductScreen(productDetailsItems[index].products))
