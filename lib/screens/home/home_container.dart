@@ -64,23 +64,23 @@ class _HomeContainerState extends State<HomeContainerScreen> {
     return AppBar(
       centerTitle: true,
       title: Text('Home'),
-      leading: Container(
-          margin: EdgeInsets.only(left: 15),
-          child: Container(
-            alignment: Alignment(20,20),
-            width: 25,
-            height: 25,
-            // decoration: BoxDecoration(
-            //   color: Colors.red,
-            //   borderRadius: BorderRadius.circular(100)
-            // ),
-            child: CircleAvatar(
-              backgroundColor: Colors.black,
-              backgroundImage: NetworkImage("https://previews.123rf.com/images/tinna2727/tinna27271506/tinna2727150600380/41119020-portrait-thai-lonely-beutiful-girl-sit-on-concrete-floor.jpg"),
-              radius: 60.0,
-            ),
-          )
-      ),
+      // leading: Container(
+      //     margin: EdgeInsets.only(left: 15),
+      //     child: Container(
+      //       alignment: Alignment(20,20),
+      //       width: 25,
+      //       height: 25,
+      //       // decoration: BoxDecoration(
+      //       //   color: Colors.red,
+      //       //   borderRadius: BorderRadius.circular(100)
+      //       // ),
+      //       child: CircleAvatar(
+      //         backgroundColor: Colors.black,
+      //         backgroundImage: NetworkImage("https://previews.123rf.com/images/tinna2727/tinna27271506/tinna2727150600380/41119020-portrait-thai-lonely-beutiful-girl-sit-on-concrete-floor.jpg"),
+      //         radius: 60.0,
+      //       ),
+      //     )
+      // ),
       actions: <Widget>[
         Stack(
           children: <Widget>[

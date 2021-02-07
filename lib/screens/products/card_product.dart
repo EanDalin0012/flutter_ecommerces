@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:ecommerces/screens/products/product_details.dart';
+import 'package:ecommerces/shares/models/product.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardProduct extends StatelessWidget {
   final String imagePath, cityName, monthYear, discount, oldPrice, newPrice;
   CardProduct(this.imagePath, this.cityName, this.monthYear, this.discount,this.oldPrice, this.newPrice);
+  Product product = new Product(1, 'Product', 20, 'https://i.pinimg.com/564x/63/f0/27/63f027e738501bb9978c3cbf3e634be4.jpg', '', 't');
   Size size;
   @override
   Widget build(BuildContext context) {
@@ -13,71 +16,79 @@ class CardProduct extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)),
-        child: Container(
-          child: Stack(
-              children: <Widget>[
-                Container(
-                  width: size.width,
-                  height: size.height,
-                  // color: Colors.red,
-                  child: _cachedNetworkImage(imagePath)
-                ),
-                Positioned(
-                  left: 0,
-                  bottom: 0,
-                  width: size.width,
-                  height: 60,
-                  child: Container(
-                    decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                            colors: [Colors.black12, Colors.black12])),
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProductDetailsScreen(product)),
+            );
+          },
+          child: Container(
+            child: Stack(
+                children: <Widget>[
+                  Container(
+                    width: size.width,
+                    height: size.height,
+                    // color: Colors.red,
+                    child: Image.network(imagePath)
                   ),
-                ),
-                Positioned(
-                  left: 10,
-                  bottom: 10,
-                  width: 145,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            cityName,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 1),
-                          ),
-                          Text(
-                            monthYear,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.normal),
-                          ),
-                        ],
-                      ),
-                      Container(
-                          padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: Text(
-                            "$discount%",
-                            style: TextStyle(color: Colors.black, fontSize: 14),
-                          ))
-                    ],
+                  Positioned(
+                    left: 0,
+                    bottom: 0,
+                    width: size.width,
+                    height: 60,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [Colors.black12, Colors.black12])),
+                    ),
                   ),
-                )
-              ]
+                  Positioned(
+                    left: 10,
+                    bottom: 10,
+                    width: 145,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              cityName,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 1),
+                            ),
+                            Text(
+                              monthYear,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ],
+                        ),
+                        Container(
+                            padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.all(Radius.circular(10))),
+                            child: Text(
+                              "$discount%",
+                              style: TextStyle(color: Colors.black, fontSize: 14),
+                            ))
+                      ],
+                    ),
+                  )
+                ]
+            ),
           ),
         )
     )

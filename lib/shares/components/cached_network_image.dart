@@ -10,6 +10,9 @@ class ImageNetWorkCached extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
         imageUrl: this.url,
+      imageBuilder: (context, imageProvider) => Container(
+        child: Image.network(imageProvider.toString()),
+      ),
         placeholder: (context, url) {
           return Container(
             child: Center(
@@ -22,4 +25,6 @@ class ImageNetWorkCached extends StatelessWidget {
         errorWidget: (context, url, error) => Icon(Icons.error),
     );
   }
+
+
 }
