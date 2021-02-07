@@ -64,7 +64,23 @@ class _HomeContainerState extends State<HomeContainerScreen> {
     return AppBar(
       centerTitle: true,
       title: Text('Home'),
-      leading: Icon(Icons.category),
+      leading: Container(
+          margin: EdgeInsets.only(left: 15),
+          child: Container(
+            alignment: Alignment(20,20),
+            width: 25,
+            height: 25,
+            // decoration: BoxDecoration(
+            //   color: Colors.red,
+            //   borderRadius: BorderRadius.circular(100)
+            // ),
+            child: CircleAvatar(
+              backgroundColor: Colors.black,
+              backgroundImage: NetworkImage("https://previews.123rf.com/images/tinna2727/tinna27271506/tinna2727150600380/41119020-portrait-thai-lonely-beutiful-girl-sit-on-concrete-floor.jpg"),
+              radius: 60.0,
+            ),
+          )
+      ),
       actions: <Widget>[
         Stack(
           children: <Widget>[
@@ -150,45 +166,22 @@ class _HomeContainerState extends State<HomeContainerScreen> {
       );
     });
   }
+
   TabBar _tabBar() {
     return TabBar(
         isScrollable: true,
         labelColor: primaryColor,
         indicatorColor: primaryColor,
         unselectedLabelColor: secondaryColor,
-        tabs: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("For You"),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Design"),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Beauty"),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Education"),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Entertainment"),
-          ),
-        ],
+        tabs: List<Widget>.generate(productDetailsItems.length, (index) => _padding(productDetailsItems[index].categoryName))
     );
   }
 
-  Widget _listBuilder () {
-    return ListView.builder(
-      itemCount: productDetailsItems.length,
-        itemBuilder: (context, index) {
-          return Container(
-            child: Text('index $index'),
-          );
-        }
+  Padding _padding(String name) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(name),
     );
   }
+
 }

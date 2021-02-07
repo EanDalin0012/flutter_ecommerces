@@ -198,6 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ],
     onTap: (index){
+      print("index: $index");
       setState(() {
         _selectedIndex = index;
       });

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerces/screens/products/card_product.dart';
 import 'package:ecommerces/shares/models/product.dart';
 import 'package:flutter/material.dart';
@@ -42,60 +41,6 @@ class _ProductsState extends State<ProductScreen> {
                 '440')
           );
       }),
-    );
-  }
-
-  Widget _buildArticleItem(int index) {
-    Product product = widget.products[index];
-    return Container(
-      color: Colors.white,
-        child: Stack(
-            children: <Widget>[
-              Container(
-                width: 90,
-                height: 90,
-                color: bgColor,
-              ),
-              Container(
-                  color: Colors.red,
-                  padding: const EdgeInsets.all(16.0),
-                  margin: const EdgeInsets.all(10.0),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        color: Colors.amber,
-                        child: Center(child: _cachedNetworkImage(product.ur)),
-                      ),
-                    ],
-                  )
-              )
-            ]
-        )
-    );
-  }
-
-  Widget _cachedNetworkImage(String url) {
-    return CachedNetworkImage(
-      imageUrl: url,
-      imageBuilder: (context, imageProvider) => Container(
-        width: ( MediaQuery.of(context).size.width / 2) - 110,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: imageProvider,
-              fit: BoxFit.cover,
-              colorFilter:ColorFilter.mode(Colors.red.withOpacity(0), BlendMode.colorBurn)),
-        ),
-      ),
-      placeholder: (context, url) {
-       return Container(
-          child: Center(
-            child: CircularProgressIndicator(
-              backgroundColor: Colors.red,
-            ),
-          ),
-        );
-      },
-      errorWidget: (context, url, error) => Icon(Icons.error),
     );
   }
 

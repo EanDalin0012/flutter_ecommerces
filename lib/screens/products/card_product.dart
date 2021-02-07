@@ -32,7 +32,7 @@ class CardProduct extends StatelessWidget {
                         gradient: LinearGradient(
                             begin: Alignment.bottomCenter,
                             end: Alignment.topCenter,
-                            colors: [Colors.black, Colors.black12])),
+                            colors: [Colors.black12, Colors.black12])),
                   ),
                 ),
                 Positioned(
