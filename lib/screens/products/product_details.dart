@@ -27,10 +27,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   _details(),
                   SizedBox(height: 15),
                   Divider(color: kBorderColor),
-                  Expandable(title: 'Product Details'),
+                  Expandable(title: 'Product Details', description: 'Hello',),
                   Divider(color: kBorderColor, indent: 15, endIndent: 15),
                   Expandable(
                     title: 'Nutrition',
+                    description: 'kjhjkhjhkjhlkj',
                     trailing: Container(
                       padding: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
@@ -76,7 +77,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                widget.product.name,
+                'Hello',
                 style: kTitleStyle.copyWith(fontSize: 18),
               ),
               SvgPicture.asset(

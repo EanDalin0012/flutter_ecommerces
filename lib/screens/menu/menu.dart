@@ -90,7 +90,7 @@ class MenuScreen extends StatelessWidget {
                 children: <Widget>[
                   CircleAvatar(
                     backgroundColor: Colors.white,
-                    child: Image.network('http://static1.squarespace.com/static/5f3a9e2015992d4d3b07334e/5f9978562a20b21cc2d29eee/5f9978562a20b21cc2d29ef1/1604415820585/google_logo.png?format=1500w'),
+                    child: Image.network('https://static.dezeen.com/uploads/2020/10/gmail-google-logo-rebrand-workspace-design_dezeen_2364_sq.jpg'),
                   ),
                   Positioned(
                       bottom: -5,
