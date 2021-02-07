@@ -5,9 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CardProduct extends StatelessWidget {
-  final String imagePath, cityName, monthYear, discount, oldPrice, newPrice;
-  CardProduct(this.imagePath, this.cityName, this.monthYear, this.discount,this.oldPrice, this.newPrice);
-  Product product = new Product(1, 'Product', 20, 'https://i.pinimg.com/564x/63/f0/27/63f027e738501bb9978c3cbf3e634be4.jpg', '', 't');
+  final Product product;
+  CardProduct(this.product);
   Size size;
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class CardProduct extends StatelessWidget {
                     width: size.width,
                     height: size.height,
                     // color: Colors.red,
-                    child: Image.network(imagePath)
+                    child: Image.network(product.ur)
                   ),
                   Positioned(
                     left: 0,
@@ -49,41 +48,60 @@ class CardProduct extends StatelessWidget {
                     left: 10,
                     bottom: 10,
                     width: 145,
-                    child: Row(
+                    child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Container(
+                          width: size.width,
+                          child: Text(
+                            product.name,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 1),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text(
-                              cityName,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  letterSpacing: 1),
+                            Column(
+                              children: <Widget>[
+                                SizedBox(height: 5),
+                                Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(
+                                        // color: Colors.white,
+                                        // shape: BoxShape.rectangle,
+                                        // borderRadius: BorderRadius.all(Radius.circular(10))
+                                    ),
+                                    child: Text(product.price.toString() +  ' USD',style: TextStyle(color: Color(0xffFD6592), fontSize: 15, fontWeight: FontWeight.w700,))
+                                )
+                              ],
                             ),
-                            Text(
-                              monthYear,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.normal),
+
+                            if (product.discount > 0) Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: <Widget>[
+                                Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                                    decoration: BoxDecoration(color: Colors.white,shape: BoxShape.rectangle,borderRadius: BorderRadius.all(Radius.circular(10))),
+                                    child: Text(product.discount.toString() +  ' %',style: TextStyle(color: Color(0xffFD6592), fontSize: 14))
+                                )
+                              ],
                             ),
+
                           ],
                         ),
-                        Container(
-                            padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.all(Radius.circular(10))),
-                            child: Text(
-                              "$discount%",
-                              style: TextStyle(color: Colors.black, fontSize: 14),
-                            ))
+                        // if(product.discount > 0) Container(
+                        //     padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                        //     decoration: BoxDecoration(color: Colors.white,shape: BoxShape.rectangle,borderRadius: BorderRadius.all(Radius.circular(10))),
+                        //     child: Text(product.discount.toString() +  ' %',style: TextStyle(color: Colors.black, fontSize: 14))
+                        // )
+
                       ],
                     ),
                   )

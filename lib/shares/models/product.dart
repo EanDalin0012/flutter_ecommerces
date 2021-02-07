@@ -5,6 +5,7 @@ class Product {
   final String ur;
   final String remark;
   final String show;
-  Product(this.id,this.name, this.price,this.ur,this.remark,this.show);
+  final int discount;
+  Product(this.id,this.name, this.price, this.discount, this.ur,this.remark,this.show);
 
 }

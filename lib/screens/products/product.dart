@@ -33,12 +33,7 @@ class _ProductsState extends State<ProductScreen> {
               // border: Border.all(color: Colors.grey, width: 3.0),
             ),
             padding: const EdgeInsets.all(10),
-            child: CardProduct(widget.products[index].ur,
-                widget.products[index].name.substring(0, 7) + '...',
-                "12 Feb",
-                "10",
-                "500",
-                '440')
+            child: CardProduct(widget.products[index])
           );
       }),
     );
