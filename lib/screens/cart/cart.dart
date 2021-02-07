@@ -13,13 +13,10 @@ class _CartsState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
-      data: _themeData(),
-      child: Scaffold(
+    return Scaffold(
         backgroundColor: Theme.of(context).buttonColor,
         appBar: _appBar(),
         body: Text('Cart'),
-      ),
     );
   }
 
