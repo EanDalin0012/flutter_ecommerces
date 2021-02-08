@@ -5,6 +5,7 @@ import 'package:ecommerces/shares/constants/constant_colors.dart';
 import 'package:ecommerces/shares/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
 
@@ -55,10 +56,23 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     ),
                   ),
                   SizedBox(height: 30),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: RoundButton(title: 'Add To Cart'),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 15),
+                  //   child: RoundButton(title: 'Add To Cart'),
+                  // ),
+                  OutlineButton.icon(
+                    borderSide: BorderSide(color: Colors.red),
+                    color: Colors.red,
+                    textColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    icon: Icon(FontAwesomeIcons.cartArrowDown, size: 18,),
+                    label: Text("Add To Cart"),
+                    onPressed: () {},
                   ),
+
+                  SizedBox(height: 30),
                 ]
             )
         )

@@ -41,9 +41,9 @@ class Header extends StatelessWidget {
                         tag: item.hashCode,
                         child: Image.network(
                           item.ur,
-                          width: constraints.maxWidth * 0.6,
-                          height: constraints.maxHeight * 0.6,
-                          fit: BoxFit.contain,
+                          width: constraints.maxWidth * 0.8,
+                          height: constraints.maxHeight * 0.8,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ]

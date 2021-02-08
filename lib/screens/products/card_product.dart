@@ -23,6 +23,7 @@ class CardProduct extends StatelessWidget {
             );
           },
           child: Container(
+            margin: EdgeInsets.only(bottom: 25),
             child: Stack(
                 children: <Widget>[
                   Container(
@@ -104,13 +105,14 @@ class CardProduct extends StatelessWidget {
 
                       ],
                     ),
-                  )
+                  ),
                 ]
             ),
           ),
         )
     )
     );
+
   }
 
   Widget _cachedNetworkImage(String url) {
