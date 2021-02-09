@@ -27,9 +27,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Header(item: widget.product),
                   _details(),
                   SizedBox(height: 15),
-                  Divider(color: kBorderColor),
+                  Divider(color: Colors.indigo),
                   Expandable(title: 'Product Details', description: 'Hello',),
-                  Divider(color: kBorderColor, indent: 15, endIndent: 15),
+                  Divider(color: Colors.indigo, indent: 15, endIndent: 15),
                   Expandable(
                     title: 'Nutrition',
                     description: 'kjhjkhjhkjhlkj',
@@ -42,7 +42,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       child: Text('100gr'),
                     ),
                   ),
-                  Divider(color: kBorderColor, indent: 15, endIndent: 15),
+                  Divider(color: Colors.indigo, indent: 15, endIndent: 15),
                   Expandable(
                     title: 'Reviews',
                     trailing: Row(
@@ -60,14 +60,22 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   //   padding: const EdgeInsets.symmetric(horizontal: 15),
                   //   child: RoundButton(title: 'Add To Cart'),
                   // ),
+
                   OutlineButton.icon(
-                    borderSide: BorderSide(color: Colors.red),
-                    color: Colors.red,
-                    textColor: Colors.black,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 8.0,
+                      horizontal: 30.0,
                     ),
-                    icon: Icon(FontAwesomeIcons.cartArrowDown, size: 18,),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0)),
+                    highlightedBorderColor: Colors.indigo,
+                    borderSide: BorderSide(color: Colors.indigo),
+                    color: Colors.indigo,
+                    textColor: Colors.indigo,
+                    icon: Icon(
+                      FontAwesomeIcons.opencart,
+                      size: 18.0,
+                    ),
                     label: Text("Add To Cart"),
                     onPressed: () {},
                   ),
